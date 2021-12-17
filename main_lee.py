@@ -22,7 +22,7 @@ if __name__ == '__main__':
         if get_today_hoilday() is True:
             user = "lee"
             startGlobal()
-            kw_Login_2(user)
+            kw_Login(user)
             time.sleep(10)
             openLoto(user=user)
             # time.sleep(30)

@@ -32,7 +32,7 @@ if __name__ == '__main__':
                 startGlobal()
                 if user == "kwak":
                     slackSendMsg(f"{user}의 무한매수를 시작합니다.")
-                    kw_Login_2(user)
+                    kw_Login(user)
                     time.sleep(10)
                     openLoto(user=user)
                     # time.sleep(30)

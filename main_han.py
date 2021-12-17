@@ -22,7 +22,7 @@ if __name__ == '__main__':
         if get_today_hoilday() is True:
             user = "han"
             startGlobal()
-            kw_Login_2(user)
+            kw_Login(user)
             time.sleep(30)
             slackSendMsg(f"{user}의 무한매수가 시작합니다.")
             openLoto(user=user)

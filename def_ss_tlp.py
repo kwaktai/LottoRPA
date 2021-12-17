@@ -8,6 +8,7 @@ logger = __get_logger()
 # "client_email": "gstopy@spreadsheettopython-320114.iam.gserviceaccount.com"
 
 todayNow = datetime.today().strftime('%Y-%m-%d')
+
 scope = ['https://spreadsheets.google.com/feeds']
 json_file_name = 'D:\TaiCloud\Documents\Project\stockRpawin_kw\jsop_Key\spreadsheettopython-320114-0340a7e3e1da.json'
 credentials = ServiceAccountCredentials.from_json_keyfile_name(

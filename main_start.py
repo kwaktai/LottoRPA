@@ -8,9 +8,6 @@ from def_ss import *
 #     slackSendMsg_rsi_check(f"{key}  : {value}")
 
 if __name__ == '__main__':
-    # startGlobal()
-    # kw_Login_2("kwak")
-    # save_stockQty("kwak", "무매", "45")
-    # saveMyDeposit("kwak", "무매", "45")
-    saveMyRevenue("kwak", "무매", "45")
+    startGlobal()
+    kw_Login("kwak")
     pass

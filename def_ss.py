@@ -18,9 +18,14 @@ todayNow = datetime.today().strftime('%Y-%m-%d')
 # --------------
 scope = ['https://spreadsheets.google.com/feeds']
 json_file_name = 'D:\TaiCloud\Documents\Project\stockRpawin_kw\jsop_Key\spreadsheettopython-320114-0340a7e3e1da.json'
+# json_file_name = '/Users/taikwak/TaiCloud/Documents/Project/stockRpawin_kw\spreadsheettopython-320114-0340a7e3e1da.json'
+
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
     json_file_name, scope)
 gc = gspread.authorize(credentials)
+
+
+
 spreadsheet_url = "https://docs.google.com/spreadsheets/d/1c6qnORby5wLx4EYCzDNIHfDUax90yKIQRwqaiFqy0FI/edit#gid=1309564982"
 # spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1P4vYP_suaKcHG-H2HgqobFEqiiGfUpgep3eAOkVrRZI/edit#gid=1309564982'
 # spreadsheet_url_test = 'https://docs.google.com/spreadsheets/d/1Ihb-0Fg8a9FaHnFADV0YBHBWlXqwpztYiGkSykBiFJE/edit#gid=0'

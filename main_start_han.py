@@ -10,5 +10,5 @@ from def_ss import *
 
 if __name__ == '__main__':
     startGlobal()
-    kw_Login_2("han")
+    kw_Login("han")
     pass

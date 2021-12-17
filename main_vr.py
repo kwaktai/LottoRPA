@@ -18,7 +18,7 @@ def vr_main(stock="TQQQ", user="kwak", type="적립식", start="start"):
     vr_type = accuntInfo[0]
     vr_qty = accuntInfo[1]
     slackSendMsg(f"{type} 거래를 시작합니다.")
-    kw_window_check_kwlogin()
+    # kw_window_check_kwlogin()
     kw_window()
     logger.info("영운문창 활성화")
     time.sleep(1)
