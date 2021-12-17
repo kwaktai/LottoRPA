@@ -1,13 +1,10 @@
-from def_lotto import *
-from slack_engin import *
-from main_vr import vr_main
-from def_kw import get_today_hoilday, startGlobal
-# from def_kw import kw_window_check_kwlogin
-from def_kw import save_screenshot
-from def_ss import *
 import logging
 import traceback
-
+from def_kw import get_today_hoilday, save_screenshot, startGlobal
+from def_lotto import *
+from def_ss import *
+from main_vr import vr_main
+from slack_engin import *
 
 logging.basicConfig(filename='log\debug.log',
                     level=logging.ERROR, format='%(asctime)s %(message)s')
