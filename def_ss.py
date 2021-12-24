@@ -52,6 +52,7 @@ def column_dataQTY():
     column_data.remove("")
     column_data_qty = len(column_data)
     return column_data, column_data_qty
+    
 
 
 def buy_values(user="kwak", type="적립식"):  # accumulative적립식  stationary거치식
