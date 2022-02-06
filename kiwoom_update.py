@@ -1,18 +1,18 @@
 from def_lotto import *
 from slack_engin import *
-from def_kw import kw_secrch_Edit, kw_window, sendText, save_stockQty, saveMyDeposit, startGlobal, activeWindow, popUp_2150_SelectAccount, saveMyRevenue
+from def_kw import kw_window, save_stockQty, saveMyDeposit, startGlobal, activeWindow, saveMyRevenue
+from def_kw_exchange import main as ex_main
 import def_ss
-import logging
-import traceback
-from def_loggin import __get_logger, accunt_info
-logger = __get_logger()
+import def_ss_tlp
+# import logging
+# import traceback
+# from def_loggin import __get_logger
+# logger.info()
 
 
 def infoList(user):
     userInfo = {"kwak": {"무매": "45",  "ava1": "24",
-                         "ava2": "23", "ava3": "62", "TLP1": "04", "TLP2": "02", "TLP3": "09"}}
-    # userInfo = {"kwak": {"무매": "45", "적립식": "49", "거치식": "53", "ava1": "24",
-    #                      "ava2": "23", "ava3": "62", "TLP1": "04", "TLP2": "02", "TLP3": "09"}}
+                         "ava2": "23", "ava3": "62", "TLP1": "04", "TLP2": "02", "TLP3": "09", "Proceeds": "82"}}
     listKey = list(userInfo[user])
     listValue = list(userInfo[user].values())
     return listKey, listValue
@@ -22,15 +22,16 @@ def saveStock(user):
     listKey = infoList(user)[0]
     listValue = infoList(user)[1]
     for i in range(len(listKey)):
-        print(listKey[i], listValue[i])
-        save_stockQty(user, listKey[i], listValue[i])
+        logger.info(listKey[i], listValue[i])
         saveMyDeposit(user, listKey[i], listValue[i])
+        save_stockQty(user, listKey[i], listValue[i])
         saveMyRevenue(user, listKey[i], listValue[i])
         slackSendMsg("나의 보유 주식 정보를 업데이트합니다.")
         def_ss.mystockdata(user, listKey[i], listValue[i])
         def_ss.myDepositValue(user, listKey[i], listValue[i])
         def_ss.MyRevenueData(user, listKey[i], listValue[i])
-        slackSendMsg("보유 주식 정보를 업데이트 완료 하였습니다.")
+    def_ss_tlp.setSheet()
+    slackSendMsg("보유 주식 정보를 업데이트 완료 하였습니다.")
 
 
 def main():
@@ -42,10 +43,13 @@ def main():
         kw_Login()
         time.sleep(10)
         pag.press("esc", 5)
+        kw_window()
         saveStock('kwak')
+        time.sleep(5)
+        # ex_main()
         kw_close()
-        # checkLottoOpen()
-        closeLoto()
+        time.sleep(3)
+        closeLotto()
         try:
             activeWindow("영웅문Global")
         except:
@@ -64,10 +68,12 @@ def main():
     except:
         # logging.error(traceback.format_exc())
         slackSendMsg("update실행 중 에러발생 확인바람.")
-        startGlobal()
+        # startGlobal()
 
 
 if __name__ == "__main__":
+    # startGlobal()
+    # kw_Login()
     main()
     # saveStock('kwak')
     # saveStock("kwak")

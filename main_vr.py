@@ -1,6 +1,7 @@
 from def_kw import *
 from def_ss import *
 from slack_engin import *
+# import def_ui
 # import sys
 # sys.path.append(["D:\TaiCloud\Documents\Project\Lotto"])
 # import def_lotto
@@ -38,15 +39,17 @@ def vr_main(stock="TQQQ", user="kwak", type="적립식", start="start"):
                       qty=vr_qty, test=start, type=type)
     time.sleep(0.5)
     check_message()
-    print("메시지 이상없음")
+    logger.info("메시지 이상없음")
     time.sleep(1)
     pag.press("esc", 5)
-    save_screenshot(user, type)
+    # save_screenshot(user, type)
 
 
 if __name__ == '__main__':
     # vr_main(type="적립식",start="test")
     # pag.press("esc", 5)
-    vr_main(user="kwak", type="적립식", start="start")
+    # vr_main(user="kwak", type="적립식", start="test")
+    # def_ui.setMainSearch("2153")
+    vr_main(user="kwak", type="거치식")
     # input2102_check_accuntNumber(1)
     # test_acc()

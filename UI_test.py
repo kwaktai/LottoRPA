@@ -4,8 +4,12 @@ import subprocess
 import uiautomation as auto
 import time
 import pyautogui as pag
+import def_ui
+import pyperclip
+from def_loggin import __get_logger
 from passdoc import pw
 pw = pw.passWord()
+logger = __get_logger()
 
 
 def test():
@@ -92,7 +96,7 @@ def def_accNumEdit_2150():
 def printControlValues():
     winControl = auto.WindowControl(
         searchDepth=1, ClassName='_NFHeroMainClass')
-    for i in range(1, 11):
+    for i in range(0, 11):
         try:
             accNumEdit = winControl.EditControl(foundIndex=i)
             getAccValue = accNumEdit.GetValuePattern().Value
@@ -130,12 +134,55 @@ def kw_Login_2(user="kwak", xy=2):
     return anWindow
 
 
+def secletTab(tabName):
+    winControl = auto.WindowControl(
+        searchDepth=1, ClassName='_NFHeroMainClass')
+    accNumEdit = winControl.TabItemControl(
+        foundIndex=1, Name=tabName)
+    if not accNumEdit.Exists(0.2, 1):
+        exit(0)
+    accNumEdit.GetSelectionItemPattern().Select()
+    # print(f"{tabName}: Tab click")
+
+
+def select2102():
+    # winControl = auto.WindowControl(
+    #     searchDepth=1, Name='영웅문Global')
+    winControl = auto.PaneControl(
+        searchDepth=2, ClassName="MDIClient")
+    accNumEdit = winControl.WindowControl(
+        Name="[2102] 해외주식 미니주문")
+    # accNumEdit = winControl.DocumentControl()
+
+    if not accNumEdit.Exists(0.2, 1):
+        print("없음")
+        # exit(0)
+    return accNumEdit.Name
+
+
 if __name__ == '__main__':
+    # print(kw_Login_2())
+    # pyperclip.copy("")
+    # anWindow = auto.WindowControl(
+    #     searchDepth=2, Name="영웅문Global Login")
+    # print(anWindow.Name)
+    # anWindow.SetActive()
+    # anWindow.SendKeys("{alt}{f4}")
+    # def_ui.setMainSearch("2102")
     # manuList = ["2153", "2150", "2111"]
-    a = kw_Login_2()
-    print(str(a)[:2])
-    # manuList = ["2153"]
-    # for i in manuList:
-    #     setMainSearch(i)
-    printControlValues()
+    # a = kw_Login_2()
+    # print(str(a)[:2])
+    # # manuList = ["2153"]
+    # # for i in manuList:
+    # #     setMainSearch(i)
+    # logger.info("testInfo")
+    # print("매수 파트")
+    # printControlValues()
+    # secletTab("매도")
+    # for i in range(0, 10):
+    #     print(select2102(i))
+    print(select2102())
+    # print("매도 파트")
+    # secletTab("매도")
+    # printControlValues()
     pass
