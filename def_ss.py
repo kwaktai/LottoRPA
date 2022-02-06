@@ -43,6 +43,7 @@ findrsishare_stockList = doc_findrsishare.worksheet('StockList')
 findrsishare_total = doc_findrsishare.worksheet('TOTAL')
 findrsishare_MyRevenue = doc_findrsishare.worksheet('MyRevenue')
 
+#test 20211224
 
 def column_dataQTY():
     # column_data = []
@@ -50,6 +51,7 @@ def column_dataQTY():
     column_data.remove("")
     column_data_qty = len(column_data)
     return column_data, column_data_qty
+    
 
 
 def buy_values(user="kwak", type="적립식"):  # accumulative적립식  stationary거치식
